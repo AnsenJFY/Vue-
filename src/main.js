@@ -3,8 +3,9 @@ import App from './App.vue'
 import router from './router'
 import fastclick from 'fastclick'
 import store from './store'
-import './assets/style/reset.css';
-import './assets/style/border.css';
+import '@style/reset.css';
+import '@style/border.css';
+import '@style/iconfont.css'
 
 Vue.config.productionTip = false
 fastclick.attach(document.body); // 解决300毫秒点击延迟
