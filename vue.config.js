@@ -12,7 +12,7 @@ module.exports = {
   devServer:{
     proxy:{
       '/api':{
-        target:'http://localhost:8080',
+        target:'http://192.168.43.159:8080',
         pathRewrite:{
           '^/api':'/mock'
         }
