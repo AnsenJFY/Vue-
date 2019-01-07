@@ -1,75 +1,25 @@
 <template>
   <div class="icons">
-    <swiper :options="swiperOptions">
+    <swiper :options="swiperOptions" v-if="showSwiper">
       <swiper-slide v-for="(page,index) in pages" :key="index">
-        <div class="icon" v-for="item in pages[index]" :key="item.url">
+        <div class="icon" v-for="item in pages[index]" :key="item.id">
           <div class="icon-img">
-            <img class="icon-img-content" :src="item.url">
+            <img class="icon-img-content" :src="item.imgUrl">
           </div>
           <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
     </swiper>
-    <div class="swiper-pagination" slot="pagination"></div>
   </div>
 </template>
 <script>
 export default {
   name: "HomeIcons",
+  props:{
+    iconList:Array
+  },
   data() {
     return {
-      iconList: [
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          desc: "热门景点"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-          desc: "深圳必玩"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
-          desc: "游乐场"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
-          desc: "海洋馆"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
-          desc: "动植物园"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png",
-          desc: "泡温泉"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1811/f6/e54fad3ea337b02.gif",
-          desc: "年终大促"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-          desc: "一日游"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png",
-          desc: "东部华侨城"
-        },
-        {
-          url:
-            "http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
-          desc: "遛娃儿"
-        }
-      ],
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
@@ -89,6 +39,9 @@ export default {
         pages[page].push(item);
       });
       return pages;
+    },
+    showSwiper(){
+      return this.iconList.length
     }
   }
 };
@@ -99,12 +52,6 @@ export default {
 .icons /deep/ .swiper-container {
   height: 0;
   padding-bottom: 50%;
-}
-.icon /deep/ .swiper-pagination{
-  position: relative;
-}
-.icon /deep/ .swiper-pagination-bullet{
-  margin: 0 .06rem;
 }
 .icons{
   margin-top: .1rem;

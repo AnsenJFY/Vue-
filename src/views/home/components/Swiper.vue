@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOptions">
+    <swiper :options="swiperOptions" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img class="swiper-img" :src="item.url">
+        <img class="swiper-img swiper-lazy" :data-src="item.imgUrl">
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
@@ -18,26 +18,25 @@
 <script>
 export default {
   name: "HomeSwiper",
+  props:{
+    swiperList:Array
+  },
   data() {
     return {
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
         },
-        autoplay:true,
-        loop:true
-      },
-      swiperList:[
-        {
-          id:'0001',
-          url:'http://img1.qunarzz.com/piao/fusion/1812/d6/daa880b254940402.jpg_750x200_b114308a.jpg'
-        },
-        {
-          id:'0002',
-          url:'http://img1.qunarzz.com/piao/fusion/1811/31/da037478f37cf202.jpg_750x200_fe28d396.jpg'
-        }
-      ]
+        autoplay:true, // 自动播放
+        loop:true, // 无限循环
+        lazy:true //懒加载，配合一个'swiper-lazy'类和'data-src'属性
+      }
     };
+  },
+  computed:{
+    showSwiper(){
+      return this.swiperList.length
+    }
   }
 };
 </script>
@@ -49,7 +48,7 @@ export default {
   width: 100%;
   height: 0;
   overflow: hidden;
-  padding-bottom: 26.66%;
+  padding-bottom: 31.25%;
   background-color: #eee;
   .swiper-img {
     width: 100%;
