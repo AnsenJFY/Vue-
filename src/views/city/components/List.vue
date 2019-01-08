@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
@@ -13,9 +13,10 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div 
+            class="button-wrapper"
             v-for="item in hot" 
             :key="item.id" 
-            class="button-wrapper"
+            @click="handleCityClick(item.name)"
           >
             <div class="button">{{item.name}}</div>
           </div>
@@ -45,6 +46,11 @@ export default {
     cities:Object,
     hot:Array,
     letter:String
+  },
+  methods:{
+    handleCityClick(cityName){
+      this.$store.dispatch('changeCity',cityName);
+    }
   },
   mounted(){
     this.scroll = new Bscroll(this.$refs.wrapper);

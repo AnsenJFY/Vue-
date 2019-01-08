@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <home-header :city="city" />
+    <home-header />
     <home-swiper :swiperList="swiperList" />
     <home-icons :iconList="iconList" />
     <home-recommend :recommendList="recommendList" />
@@ -28,7 +28,6 @@ export default {
   },
   data(){
     return {
-      city:'',
       iconList:[],
       recommendList:[],
       swiperList:[],
@@ -39,7 +38,6 @@ export default {
     async getIndexInfo(){
       await IndexApi().then((res)=>{
         let {data} = res.data;
-        this.city = data.city
         this.iconList = data.iconList;
         this.recommendList = data.recommendList;
         this.swiperList = data.swiperList;
