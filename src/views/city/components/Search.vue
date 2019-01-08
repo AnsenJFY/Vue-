@@ -10,7 +10,6 @@ export default {
 </script>
 <style lang="less" scoped>
   @import "~@style/varibles.less";
-  @import "~@style/mixins.less";
 .search{
   padding: 0 .1rem;
   height: .72rem;

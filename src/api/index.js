@@ -11,3 +11,9 @@ export const IndexApi = ()=>{
     method:'get'
   })
 }
+export const CityApi = ()=>{
+  return fetch({
+    url:'/city.json',
+    method:'get'
+  })
+}

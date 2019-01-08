@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {IndexApi} from "../../api";
+import {IndexApi} from "@/api";
 
 import HomeHeader from "./components/Header";
 import HomeSwiper from "./components/Swiper";
