@@ -2,8 +2,15 @@
   <div>
     <city-header/>
     <city-search/>
-    <city-list :cities="cities" :hot="hotCities" />
-    <city-alphabet :cities="cities"/>
+    <city-list 
+      :cities="cities" 
+      :hot="hotCities" 
+      :letter="letter"
+    />
+    <city-alphabet 
+      :cities="cities"
+      @change="handelLetterChange"  
+    />
   </div>
 </template>
 <script>
@@ -25,7 +32,8 @@ export default {
   data(){
     return {
       cities:{},
-      hotCities:[]
+      hotCities:[],
+      letter:''
     }
   },
   mounted(){
@@ -37,6 +45,11 @@ export default {
         this.hotCities = data.hotCities;
       }
     })
+  },
+  methods:{
+    handelLetterChange(letter){
+      this.letter = letter;
+    }
   }
 };
 </script>
