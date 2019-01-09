@@ -46,11 +46,10 @@ export default {
       }
     }
   },
-  mounted(){
-    document.documentElement.scrollTop = 0; //默认距离顶部区域为0
+  activated(){
     window.addEventListener('scroll',this.handleScroll)
   },
-  destroyed(){
+  deactivated(){
     window.removeEventListener('scroll',this.handleScroll)
   }
 }
