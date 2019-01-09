@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  lintOnSave: true,
+  lintOnSave: process.env.NODE_ENV !== 'production',
   baseUrl: './',
   chainWebpack: (config) => {
     // 设置别名

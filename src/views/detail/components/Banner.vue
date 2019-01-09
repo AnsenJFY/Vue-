@@ -63,6 +63,7 @@ export default {
     .banner-number{
       height: .32rem;
       line-height: .32rem;
+      margin: .14rem;
       padding: 0 .4rem;
       border-radius: .2rem;
       background: rgba(0, 0, 0, .6);
