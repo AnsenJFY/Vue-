@@ -47,7 +47,11 @@ export default {
     }
   },
   mounted(){
+    document.documentElement.scrollTop = 0; //默认距离顶部区域为0
     window.addEventListener('scroll',this.handleScroll)
+  },
+  destroyed(){
+    window.removeEventListener('scroll',this.handleScroll)
   }
 }
 </script>
@@ -70,6 +74,7 @@ export default {
   }
 }
 .header-fixed{
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
