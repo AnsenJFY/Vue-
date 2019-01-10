@@ -4,6 +4,7 @@ import router from './router'
 import fastclick from 'fastclick'
 import store from './store/store'
 import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'babel-polyfill';
 import '@style/reset.css';
 import '@style/border.css';
 import 'swiper/dist/css/swiper.css';

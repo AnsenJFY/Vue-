@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const fetch = axios.create({
-  baseURL:'/api',
+  baseURL:process.env.NODE_ENV === 'production'?'http://localhost:8080/mock':'/api',
   timeout:1000,
 })
 
