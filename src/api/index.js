@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// 测试多仓库Git操作Test
-
 const fetch = axios.create({
   baseURL:process.env.NODE_ENV === 'production'?'http://localhost:8080/mock':'/api',
   timeout:1000,
