@@ -4,6 +4,7 @@ import router from './router'
 import fastclick from 'fastclick'
 import store from './store/store'
 import VueAwesomeSwiper from 'vue-awesome-swiper';
+import VConsole from 'vconsole';
 import 'babel-polyfill';
 import '@style/reset.css';
 import '@style/border.css';
@@ -13,6 +14,8 @@ import '@style/iconfont.css';
 Vue.config.productionTip = false
 fastclick.attach(document.body); // 解决300毫秒点击延迟
 Vue.use(VueAwesomeSwiper);
+const vConsole = new VConsole();
+Vue.use(vConsole)
 
 new Vue({
   router,
